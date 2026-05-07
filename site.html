@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabesque Denim - Premium Arabic Accessories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600&family=Scheherazade+New&display=swap" rel="stylesheet">
+    <style>
+        /* ===== DENIM THEME VARIABLES ===== */
+        :root {
+            --denim-dark: #1a3a5f;
+            --denim-medium: #2d5a8c;
+            --denim-light: #4a7bb5;
+            --denim-accent: #6b9bd2;
+            --gold: #d4af37;
+            --light-gold: #f4e8d0;
+            --dark-bg: #0d1b2a;
+            --text-light: #f8f9fa;
+            --text-muted: #adb5bd;
+            --stitch: #e0e0e0;
+            --success: #27ae60;
+            --error: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: "Cairo", sans-serif;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(42, 82, 122, 0.2) 0%, transparent 55%),
+                radial-gradient(circle at 75% 75%, rgba(26, 58, 95, 0.2) 0%, transparent 55%);
+        }
+
+        /* ===== DENIM TEXTURE & STITCHING ===== */
+        .denim-texture {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* ===== HEADER WITH DENIM STYLING ===== */
+        header {
+            background: 
+                linear-gradient(135deg, var(--denim-dark), #152238),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255,255,255,0.03) 10px,
+                    rgba(255,255,255,0.03) 20px
+                );
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--denim-medium);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            color: var(--gold);
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+
+        header h1 {
+            font-family: "Scheherazade New", serif;
+            font-size: 32px;
+            margin: 0;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            background: linear-gradient(to right, var(--gold), var(--light-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav a:hover {
+            color: var(--gold);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold);
+        }
+
+        nav a.active {
+            color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            margin-left: 25px;
+        }
+
+        .nav-icons a {
+            color: var(--text-light);
+            font-size: 18px;
+            transition: color 0.3s;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+
+        .nav-icons a:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--gold);
+            color: var(--denim-dark);
+            font-size: 12px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        /* ===== PAGE SECTIONS ===== */
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* ===== DENIM HERO SECTION ===== */
+        .hero {
+            height: 85vh;
+            background: 
+                linear-gradient(rgba(26, 58, 95, 0.85), rgba(45, 90, 140, 0.8)), 
+                url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80") center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255,255,255,0.03) 2px,
+                    rgba(255,255,255,0.03) 4px
+                );
+            pointer-events: none;
+        }
+
+        .hero h2 {
+            font-family: "Amiri", serif;
+            font-size: 52px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            color: var(--text-light);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin-bottom: 30px;
+            color: var(--light-gold);
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn {
+            padding: 16px 45px;
+            background: linear-gradient(to right, var(--gold), #e6c158);
+            border: none;
+            color: var(--denim-dark);
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* ===== DENIM PRODUCTS SECTION ===== */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+
+        .section-title h3 {
+            font-family: "Scheherazade New", serif;
+            font-size: 36px;
+            color: var(--text-light);
+            display: inline-block;
+            padding: 0 20px;
+            background: var(--dark-bg);
+            z-index: 1;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--denim-accent), transparent);
+            z-index: 0;
+        }
+
+        .products {
+            padding: 20px 40px 80px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .item {
+            background: linear-gradient(145deg, #152238, #1a2d4a);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 1px solid rgba(107, 155, 210, 0.3);
+        }
+
+        .item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 5px,
+                    rgba(107, 155, 210, 0.05) 5px,
+                    rgba(107, 155, 210, 0.05) 10px
+                );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--denim-accent);
+        }
+
+        .item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .item:hover img {
+            transform: scale(1.05);
+        }
+
+        .item-content {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .item h4 {
+            font-family: "Cairo", sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .item p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .item-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--gold);
+            font-size: 18px;
+        }
+
+        .add-to-cart {
+            background: var(--denim-accent);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .add-to-cart:hover {
+            background: var(--denim-light);
+            transform: translateY(-2px);
+        }
+
+        /* ===== DENIM PATCHES ===== */
+        .denim-patch {
+            position: absolute;
+            background: var(--denim-medium);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-light);
+            z-index: 3;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .denim-patch::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px dashed var(--stitch);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .patch-new {
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: var(--denim-dark);
+        }
+
+        .patch-sale {
+            top: 15px;
+            left: 15px;
+            background: #e74c3c;
+        }
+
+        /* ===== DENIM CATEGORIES ===== */
+        .categories {
+            padding: 60px 40px;
+            background: linear-gradient(to bottom, var(--denim-dark), #152238);
+            position: relative;
+        }
+
+        .categories::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(255,255,255,0.02) 20px,
+                    rgba(255,255,255,0.02) 40px
+                );
+            pointer-events: none;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 30px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 3px,
+                    rgba(255,255,255,0.03) 3px,
+                    rgba(255,255,255,0.03) 6px
+                );
+            pointer-events: none;
+        }
+
+        .category-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            border-color: var(--denim-accent);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-card h4 {
+            font-family: "Cairo", sans-serif;
+            font-size: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== AI DESIGNER SECTION ===== */
+        .ai-designer {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, var(--denim-dark), var(--dark-bg));
+        }
+
+        .designer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .design-controls {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .design-preview {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .preview-image {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            background: var(--denim-medium);
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 18px;
+            border: 2px dashed var(--denim-accent);
+        }
+
+        .design-option {
+            margin-bottom: 20px;
+        }
+
+        .design-option label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .design-option select, .design-option input, .design-option textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .design-option textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to right, var(--gold), #e6c158);
+            border: none;
+            color: var(--denim-dark);
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* ===== SHOPPING CART MODAL ===== */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--denim-dark), #152238);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.5);
+            z-index: 2000;
+            transition: right 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 25px;
+            border-bottom: 2px solid var(--denim-medium);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .cart-header h3 {
+            font-family: "Scheherazade New", serif;
+            font-size: 24px;
+            color: var(--gold);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-cart:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--gold);
+        }
+
+        .cart-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-details h4 {
+            font-family: "Cairo", sans-serif;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .cart-item-price {
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: var(--text-light);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: var(--denim-accent);
+            color: white;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--error);
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 5px;
+            transition: color 0.3s;
+        }
+
+        .remove-item:hover {
+            color: #c0392b;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+        }
+
+        .cart-footer {
+            padding: 25px;
+            border-top: 2px solid var(--denim-medium);
+            background: rgba(0,0,0,0.2);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .total-amount {
+            color: var(--gold);
+            font-size: 22px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to right, var(--gold), #e6c158);
+            border: none;
+            color: var(--denim-dark);
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+        }
+
+        .checkout-btn:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* ===== NOTIFICATION TOAST ===== */
+        .toast {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            padding: 15px 25px;
+            background: var(--success);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 3000;
+            transform: translateX(400px);
+            transition: transform 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.error {
+            background: var(--error);
+        }
+
+        /* ===== LOGIN MODAL ===== */
+        .login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 3000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-modal.active {
+            display: flex;
+        }
+
+        .login-container {
+            background: linear-gradient(135deg, var(--denim-dark), #152238);
+            border-radius: 15px;
+            padding: 40px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid var(--denim-medium);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h3 {
+            font-family: "Scheherazade New", serif;
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--text-light);
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--denim-accent);
+            box-shadow: 0 0 0 2px rgba(107,155,210,0.3);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, var(--gold), #e6c158);
+            border: none;
+            color: var(--denim-dark);
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+        }
+
+        /* ===== DENIM FOOTER ===== */
+        footer {
+            background: linear-gradient(to right, var(--denim-dark), #0f1a2a);
+            padding: 60px 40px 30px;
+            border-top: 3px solid var(--denim-medium);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 5px,
+                    rgba(255,255,255,0.02) 5px,
+                    rgba(255,255,255,0.02) 10px
+                );
+            pointer-events: none;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h4 {
+            font-family: "Scheherazade New", serif;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-column p, .footer-column a {
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--gold);
+            color: var(--denim-dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .products {
+                padding: 20px 20px 60px;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .cart-modal {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .designer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+            
+            .section-title h3 {
+                font-size: 28px;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .login-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="denim-texture">
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <i class="fas fa-vest logo-icon"></i>
+            <h1>نَــفــٌــسْ</h1>
+        </div>
+        
+        <nav>
+            <a href="#" class="nav-link active" data-page="home">Home</a>
+            <a href="#" class="nav-link" data-page="shop">Shop</a>
+            <a href="#" class="nav-link" data-page="designer">AI Designer</a>
+            <a href="#" class="nav-link" data-page="collections">Collections</a>
+            <a href="#" class="nav-link" data-page="about">About</a>
+            
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#" id="login-btn"><i class="fas fa-user"></i></a>
+                <a href="#" class="cart-icon" id="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page-section active">
+        <section class="hero">
+            <h2>جمال الفن العربي — Arabic Art Elegance</h2>
+            <p>Discover our exclusive collection of denim accessories inspired by rich Arabic heritage</p>
+            <div>
+                <button class="btn" id="shop-now-btn">Shop Now <i class="fas fa-arrow-right"></i></button>
+                <button class="btn btn-outline" id="design-now-btn">Design Your Own</button>
+            </div>
+        </section>
+
+        <section class="products">
+            <div class="section-title">
+                <h3>Featured Denim Items</h3>
+            </div>
+
+            <div class="grid">
+                <div class="item">
+                    <div class="denim-patch patch-new">New</div>
+                    <img src="https://images.unsplash.com/photo-1582418702059-97ebafb35d09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=715&q=80" alt="Denim Bracelet">
+                    <div class="item-content">
+                        <h4>Desert Nomad Bracelet</h4>
+                        <p>Handcrafted denim bracelet with Arabic patterns and silver accents</p>
+                        <div class="item-price">
+                            <span class="price">$89.99</span>
+                            <button class="add-to-cart" data-id="1" data-name="Desert Nomad Bracelet" data-price="89.99" data-image="https://images.unsplash.com/photo-1582418702059-97ebafb35d09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=715&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="denim-patch patch-sale">Sale</div>
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Denim Ring">
+                    <div class="item-content">
+                        <h4>Bedouin Ring</h4>
+                        <p>Elegant denim ring featuring traditional Islamic geometric design</p>
+                        <div class="item-price">
+                            <span class="price">$65.50</span>
+                            <button class="add-to-cart" data-id="2" data-name="Bedouin Ring" data-price="65.50" data-image="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Denim Necklace">
+                    <div class="item-content">
+                        <h4>Oasis Necklace</h4>
+                        <p>Statement denim necklace with Arabic calligraphy pendant</p>
+                        <div class="item-price">
+                            <span class="price">$120.00</span>
+                            <button class="add-to-cart" data-id="3" data-name="Oasis Necklace" data-price="120.00" data-image="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="denim-patch patch-new">New</div>
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Denim Earrings">
+                    <div class="item-content">
+                        <h4>Zahra Earrings</h4>
+                        <p>Delicate denim earrings with traditional Arabic motifs</p>
+                        <div class="item-price">
+                            <span class="price">$75.00</span>
+                            <button class="add-to-cart" data-id="4" data-name="Zahra Earrings" data-price="75.00" data-image="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories">
+            <div class="section-title">
+                <h3>Denim Collections</h3>
+            </div>
+            
+            <div class="category-grid">
+                <div class="category-card">
+                    <i class="fas fa-ring category-icon"></i>
+                    <h4>Denim Rings</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-gem category-icon"></i>
+                    <h4>Denim Necklaces</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-hand-sparkles category-icon"></i>
+                    <h4>Denim Bracelets</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-ear-deaf category-icon"></i>
+                    <h4>Denim Earrings</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-vest category-icon"></i>
+                    <h4>Denim Patches</h4>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Shop Page -->
+    <section id="shop" class="page-section">
+        <div class="hero" style="height: 60vh; background: linear-gradient(rgba(26, 58, 95, 0.85), rgba(45, 90, 140, 0.8)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;">
+            <h2>Shop Our Collection</h2>
+            <p>Browse our complete range of Arabic-inspired denim accessories</p>
+        </div>
+
+        <section class="products">
+            <div class="section-title">
+                <h3>All Products</h3>
+            </div>
+
+            <div class="grid">
+                <!-- Additional products would go here -->
+                <div class="item">
+                    <div class="denim-patch patch-new">New</div>
+                    <img src="https://images.unsplash.com/photo-1584302179602-e4819bb92daa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Denim Brooch">
+                    <div class="item-content">
+                        <h4>Desert Rose Brooch</h4>
+                        <p>Intricate denim brooch with Arabic floral patterns</p>
+                        <div class="item-price">
+                            <span class="price">$45.00</span>
+                            <button class="add-to-cart" data-id="5" data-name="Desert Rose Brooch" data-price="45.00" data-image="https://images.unsplash.com/photo-1584302179602-e4819bb92daa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- AI Designer Page -->
+    <section id="designer" class="page-section">
+        <div class="hero" style="height: 60vh; background: linear-gradient(rgba(26, 58, 95, 0.85), rgba(45, 90, 140, 0.8)), url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;">
+            <h2>AI Accessory Designer</h2>
+            <p>Create your own unique denim accessory with our AI designer</p>
+        </div>
+
+        <section class="ai-designer">
+            <div class="designer-container">
+                <div class="design-controls">
+                    <h3>Design Your Accessory</h3>
+                    <div class="design-option">
+                        <label for="accessory-type">Accessory Type</label>
+                        <select id="accessory-type">
+                            <option value="bracelet">Bracelet</option>
+                            <option value="necklace">Necklace</option>
+                            <option value="ring">Ring</option>
+                            <option value="earrings">Earrings</option>
+                            <option value="brooch">Brooch</option>
+                        </select>
+                    </div>
+                    <div class="design-option">
+                        <label for="design-style">Design Style</label>
+                        <select id="design-style">
+                            <option value="geometric">Geometric Patterns</option>
+                            <option value="calligraphy">Arabic Calligraphy</option>
+                            <option value="floral">Floral Motifs</option>
+                            <option value="tribal">Tribal Designs</option>
+                            <option value="modern">Modern Fusion</option>
+                        </select>
+                    </div>
+                    <div class="design-option">
+                        <label for="color-scheme">Color Scheme</label>
+                        <select id="color-scheme">
+                            <option value="classic">Classic Denim</option>
+                            <option value="gold-accent">Gold Accents</option>
+                            <option value="silver-tone">Silver Tones</option>
+                            <option value="earth-tone">Earth Tones</option>
+                            <option value="vibrant">Vibrant Colors</option>
+                        </select>
+                    </div>
+                    <div class="design-option">
+                        <label for="custom-request">Custom Request</label>
+                        <textarea id="custom-request" placeholder="Describe any specific elements you'd like to include..."></textarea>
+                    </div>
+                    <button class="generate-btn" id="generate-design">
+                        <i class="fas fa-magic"></i> Generate Design
+                    </button>
+                </div>
+                <div class="design-preview">
+                    <h3>Your Design Preview</h3>
+                    <div class="preview-image" id="preview-image">
+                        <i class="fas fa-gem" style="font-size: 48px; color: var(--gold);"></i>
+                        <p>Your design will appear here</p>
+                    </div>
+                    <div class="design-option">
+                        <label for="design-name">Name Your Creation</label>
+                        <input type="text" id="design-name" placeholder="e.g., My Custom Bracelet">
+                    </div>
+                    <button class="btn" id="add-to-cart-designed" disabled>
+                        <i class="fas fa-shopping-cart"></i> Add to Cart - $99.99
+                    </button>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Collections Page -->
+    <section id="collections" class="page-section">
+        <div class="hero" style="height: 60vh; background: linear-gradient(rgba(26, 58, 95, 0.85), rgba(45, 90, 140, 0.8)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;">
+            <h2>Our Collections</h2>
+            <p>Explore our curated denim accessory collections</p>
+        </div>
+        <section class="categories">
+            <div class="category-grid">
+                <div class="category-card" style="background: linear-gradient(135deg, var(--denim-dark), #2c3e50);">
+                    <i class="fas fa-mosque category-icon"></i>
+                    <h4>Heritage Collection</h4>
+                    <p>Traditional Arabic designs</p>
+                </div>
+                <div class="category-card" style="background: linear-gradient(135deg, var(--denim-medium), #34495e);">
+                    <i class="fas fa-atom category-icon"></i>
+                    <h4>Modern Fusion</h4>
+                    <p>Contemporary Arabic art</p>
+                </div>
+                <div class="category-card" style="background: linear-gradient(135deg, var(--denim-light), #7f8c8d);">
+                    <i class="fas fa-crown category-icon"></i>
+                    <h4>Royal Edition</h4>
+                    <p>Luxury gold-accented pieces</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page-section">
+        <div class="hero" style="height: 60vh; background: linear-gradient(rgba(26, 58, 95, 0.85), rgba(45, 90, 140, 0.8)), url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80') center/cover;">
+            <h2>About Arabesque Denim</h2>
+            <p>Our story of blending Arabic heritage with contemporary denim fashion</p>
+        </div>
+        <section class="products">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto; padding: 40px;">
+                <h3 style="font-family: 'Scheherazade New', serif; margin-bottom: 20px; color: var(--gold);">Our Mission</h3>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text-muted);">
+                    Arabesque Denim was born from a passion for Arabic art and a love for sustainable fashion. 
+                    We combine traditional Arabic patterns and calligraphy with modern denim craftsmanship to 
+                    create unique accessories that celebrate cultural heritage while embracing contemporary style.
+                </p>
+            </div>
+        </section>
+    </section>
+
+    <!-- Shopping Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount" id="cart-total">$0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn" disabled>Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="login-modal">
+        <div class="login-container">
+            <div class="login-header">
+                <h3>Welcome Back</h3>
+                <p>Sign in to your account</p>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">Item added to cart!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Arabesque Denim</h4>
+                <p>Bringing the beauty of Arabic art and heritage through exquisite denim accessories crafted with passion and tradition.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <a href="#" class="nav-link" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="shop">Shop</a>
+                <a href="#" class="nav-link" data-page="designer">AI Designer</a>
+                <a href="#" class="nav-link" data-page="collections">Collections</a>
+                <a href="#" class="nav-link" data-page="about">About</a>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Customer Service</h4>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns & Exchanges</a>
+                <a href="#">Size Guide</a>
+                <a href="#">Jewelry Care</a>
+                <a href="#">FAQ</a>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> fac de mode mounastir</p>
+                <p><i class="fas fa-phone"></i> +971 4 123 4567</p>
+                <p><i class="fas fa-envelope"></i> insafarraouiki@gmail.com</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © 2025 نَــفــٌــسْ
+         — All Rights Reserved
+        </div>
+    </footer>
+
+    <script>
+        // Shopping Cart Functionality
+        class ShoppingCart {
+            constructor() {
+                this.items = [];
+                this.total = 0;
+                this.count = 0;
+                this.init();
+            }
+
+            init() {
+                this.loadFromStorage();
+                this.updateCartDisplay();
+                this.setupEventListeners();
+                this.setupNavigation();
+            }
+
+            setupEventListeners() {
+                // Cart button
+                document.getElementById('cart-btn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.toggleCart();
+                });
+
+                // Close cart
+                document.getElementById('close-cart').addEventListener('click', () => {
+                    this.toggleCart();
+                });
+
+                // Add to cart buttons
+                document.querySelectorAll('.add-to-cart').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const product = {
+                            id: button.dataset.id,
+                            name: button.dataset.name,
+                            price: parseFloat(button.dataset.price),
+                            image: button.dataset.image,
+                            quantity: 1
+                        };
+                        this.addItem(product);
+                        this.showToast(`${product.name} added to cart!`);
+                    });
+                });
+
+                // Checkout button
+                document.getElementById('checkout-btn').addEventListener('click', () => {
+                    this.checkout();
+                });
+
+                // Login button
+                document.getElementById('login-btn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.toggleLoginModal();
+                });
+
+                // Login form
+                document.getElementById('login-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleLogin();
+                });
+
+                // Close login modal when clicking outside
+                document.getElementById('login-modal').addEventListener('click', (e) => {
+                    if (e.target === document.getElementById('login-modal')) {
+                        this.toggleLoginModal();
+                    }
+                });
+
+                // Hero buttons
+                document.getElementById('shop-now-btn').addEventListener('click', () => {
+                    this.showPage('shop');
+                });
+
+                document.getElementById('design-now-btn').addEventListener('click', () => {
+                    this.showPage('designer');
+                });
+
+                // AI Designer functionality
+                document.getElementById('generate-design').addEventListener('click', () => {
+                    this.generateAIDesign();
+                });
+
+                document.getElementById('add-to-cart-designed').addEventListener('click', () => {
+                    this.addDesignedItemToCart();
+                });
+            }
+
+            setupNavigation() {
+                // Navigation links
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const page = link.dataset.page;
+                        this.showPage(page);
+                        
+                        // Update active state
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    });
+                });
+
+                // Footer navigation links
+                document.querySelectorAll('footer .nav-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const page = link.dataset.page;
+                        this.showPage(page);
+                        
+                        // Update active state in header
+                        document.querySelectorAll('header .nav-link').forEach(l => {
+                            l.classList.remove('active');
+                            if (l.dataset.page === page) {
+                                l.classList.add('active');
+                            }
+                        });
+                    });
+                });
+            }
+
+            showPage(pageId) {
+                // Hide all pages
+                document.querySelectorAll('.page-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show the selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+
+            addItem(product) {
+                const existingItem = this.items.find(item => item.id === product.id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    this.items.push(product);
+                }
+                
+                this.updateCart();
+                this.animateCartIcon();
+            }
+
+            removeItem(id) {
+                this.items = this.items.filter(item => item.id !== id);
+                this.updateCart();
+                this.showToast('Item removed from cart!');
+            }
+
+            updateQuantity(id, change) {
+                const item = this.items.find(item => item.id === id);
+                if (item) {
+                    item.quantity += change;
+                    
+                    if (item.quantity <= 0) {
+                        this.removeItem(id);
+                    } else {
+                        this.updateCart();
+                    }
+                }
+            }
+
+            updateCart() {
+                this.count = this.items.reduce((total, item) => total + item.quantity, 0);
+                this.total = this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
+                
+                this.updateCartDisplay();
+                this.saveToStorage();
+            }
+
+            updateCartDisplay() {
+                // Update cart count
+                document.querySelector('.cart-count').textContent = this.count;
+                
+                // Update cart items
+                const cartContent = document.getElementById('cart-content');
+                const cartTotal = document.getElementById('cart-total');
+                const checkoutBtn = document.getElementById('checkout-btn');
+                
+                if (this.items.length === 0) {
+                    cartContent.innerHTML = '<div class="cart-empty"><p>Your cart is empty</p></div>';
+                    checkoutBtn.disabled = true;
+                } else {
+                    cartContent.innerHTML = this.items.map(item => `
+                        <div class="cart-item">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="cart-item-details">
+                                <h4>${item.name}</h4>
+                                <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                                    <span>${item.quantity}</span>
+                                    <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                                </div>
+                                <button class="remove-item" data-id="${item.id}">Remove</button>
+                            </div>
+                        </div>
+                    `).join('');
+                    
+                    // Add event listeners to quantity buttons
+                    cartContent.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            this.updateQuantity(btn.dataset.id, -1);
+                        });
+                    });
+                    
+                    cartContent.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            this.updateQuantity(btn.dataset.id, 1);
+                        });
+                    });
+                    
+                    // Add event listeners to remove buttons
+                    cartContent.querySelectorAll('.remove-item').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            this.removeItem(btn.dataset.id);
+                        });
+                    });
+                    
+                    checkoutBtn.disabled = false;
+                }
+                
+                cartTotal.textContent = `$${this.total.toFixed(2)}`;
+            }
+
+            toggleCart() {
+                document.getElementById('cart-modal').classList.toggle('active');
+            }
+
+            toggleLoginModal() {
+                document.getElementById('login-modal').classList.toggle('active');
+            }
+
+            animateCartIcon() {
+                const cartIcon = document.querySelector('.cart-icon');
+                cartIcon.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    cartIcon.style.transform = 'scale(1)';
+                }, 300);
+            }
+
+            showToast(message, isError = false) {
+                const toast = document.getElementById('toast');
+                const toastMessage = document.getElementById('toast-message');
+                
+                toastMessage.textContent = message;
+                toast.classList.toggle('error', isError);
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+
+            handleLogin() {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                // Simple validation
+                if (!email || !password) {
+                    this.showToast('Please fill in all fields', true);
+                    return;
+                }
+                
+                // Simulate login process
+                this.showToast('Login successful!');
+                this.toggleLoginModal();
+                
+                // Clear form
+                document.getElementById('login-form').reset();
+            }
+
+            checkout() {
+                if (this.items.length === 0) return;
+                
+                this.showToast('Proceeding to checkout...');
+                // In a real application, you would redirect to checkout page
+                setTimeout(() => {
+                    this.items = [];
+                    this.updateCart();
+                    this.toggleCart();
+                }, 2000);
+            }
+
+            generateAIDesign() {
+                const accessoryType = document.getElementById('accessory-type').value;
+                const designStyle = document.getElementById('design-style').value;
+                const colorScheme = document.getElementById('color-scheme').value;
+                const customRequest = document.getElementById('custom-request').value;
+                
+                // Show loading state
+                const previewImage = document.getElementById('preview-image');
+                previewImage.innerHTML = '<i class="fas fa-spinner fa-spin" style="font-size: 48px; color: var(--gold);"></i><p>Generating your design...</p>';
+                
+                // Simulate AI processing
+                setTimeout(() => {
+                    // Generate a design based on user inputs
+                    const designName = document.getElementById('design-name').value || `Custom ${accessoryType}`;
+                    
+                    previewImage.innerHTML = `
+                        <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--denim-medium), var(--denim-light)); border-radius: 8px; padding: 20px;">
+                            <i class="fas fa-gem" style="font-size: 64px; color: var(--gold); margin-bottom: 15px;"></i>
+                            <h4 style="color: white; margin-bottom: 10px;">${designName}</h4>
+                            <p style="color: var(--light-gold); text-align: center; font-size: 14px;">${designStyle} • ${colorScheme}</p>
+                            ${customRequest ? `<p style="color: var(--light-gold); margin-top: 10px; font-size: 12px;">Custom: ${customRequest}</p>` : ''}
+                        </div>
+                    `;
+                    
+                    // Enable add to cart button
+                    document.getElementById('add-to-cart-designed').disabled = false;
+                    
+                    this.showToast('Your custom design is ready!');
+                }, 2000);
+            }
+
+            addDesignedItemToCart() {
+                const designName = document.getElementById('design-name').value || 'Custom Design';
+                const accessoryType = document.getElementById('accessory-type').value;
+                
+                const designedProduct = {
+                    id: 'custom-' + Date.now(),
+                    name: designName,
+                    price: 99.99,
+                    image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzFhM2E1ZiIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IiNkNGFmMzciLz48L3N2Zz4=',
+                    quantity: 1,
+                    custom: true
+                };
+                
+                this.addItem(designedProduct);
+                this.showToast(`${designName} added to cart!`);
+                
+                // Reset designer
+                document.getElementById('add-to-cart-designed').disabled = true;
+                document.getElementById('design-name').value = '';
+                document.getElementById('custom-request').value = '';
+            }
+
+            saveToStorage() {
+                localStorage.setItem('arabesqueCart', JSON.stringify({
+                    items: this.items,
+                    total: this.total,
+                    count: this.count
+                }));
+            }
+
+            loadFromStorage() {
+                const saved = localStorage.getItem('arabesqueCart');
+                if (saved) {
+                    const cartData = JSON.parse(saved);
+                    this.items = cartData.items || [];
+                    this.total = cartData.total || 0;
+                    this.count = cartData.count || 0;
+                }
+            }
+        }
+
+        // Initialize the shopping cart when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new ShoppingCart();
+        });
+    </script>
+</body>
+</html>
